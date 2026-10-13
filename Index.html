@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enshra & Rafay - Wedding Invitation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-bg: #fbf9f5;
+            --paper-dark-bg: #f4ebd0;
+            --bismillah-border-color: #c5a059;
+            --accent-gold: #d4af37;
+        }
+        body {
+            background-color: var(--main-bg);
+            font-family: 'Playfair Display', serif;
+            color: #2c2c2c;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease;
+        }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .font-vibes { font-family: 'Great Vibes', cursive; }
+        
+        /* Gatefold transition */
+        .gatefold-left, .gatefold-right {
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .opened .gatefold-left {
+            transform: translateX(-100%);
+        }
+        .opened .gatefold-right {
+            transform: translateX(100%);
+        }
+        .opened .gatefold-content {
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 1s ease 0.6s;
+        }
+        .gatefold-content {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #c5a059; border-radius: 3px; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-2 sm:p-6">
+
+    <!-- Top Left Controls -->
+    <div class="fixed top-4 left-4 z-50 flex gap-2">
+        <button onclick="toggleCustomizer()" class="bg-[#d4af37] text-white px-3 py-2 rounded-full shadow-lg text-xs sm:text-sm font-cinzel flex items-center gap-1.5 hover:bg-[#b38f27] transition">
+            <i class="fa-solid fa-palette"><span>Design & Elements</span></i>
+        </button>
+        <button onclick="toggleCraftStudio()" class="bg-[#8b0000] text-white px-3 py-2 rounded-full shadow-lg text-xs sm:text-sm font-cinzel flex items-center gap-1.5 hover:bg-[#600000] transition">
+            <i class="fa-solid fa-wand-magic-sparkles"><span>DIY Craft Studio</span></i>
+        </button>
+    </div>
+
+    <!-- Main Card Container -->
+    <div id="mainCard" class="relative w-full max-w-md bg-[#fefdfb] rounded-2xl shadow-2xl overflow-hidden border border-[#e6d5b8] min-h-[750px] flex flex-col">
+
+        <!-- INNER CONTENT PAGES -->
+        <div class="gatefold-content absolute inset-0 flex flex-col justify-between p-6 sm:p-8 z-10 overflow-y-auto">
+            <!-- Page Header -->
+            <div class="text-center pt-6">
+                <div id="ele-bismillah" class="text-xl sm:text-2xl font-cinzel tracking-widest text-[#8b0000] mb-2 border-b border-t py-2 border-[#d4af37]" style="border-color: var(--bismillah-border-color);">
+                    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                </div>
+                <p class="text-xs tracking-widest uppercase text-[#555] mt-3">With the Grace of Almighty Allah</p>
+                <h1 class="font-vibes text-4xl sm:text-5xl text-[#d4af37] my-3">Enshra Zahid</h1>
+                <p class="text-sm font-semibold tracking-wider text-[#777]">&</p>
+                <h1 class="font-vibes text-4xl sm:text-5xl text-[#d4af37] my-3">Syed Rafay Iqbal</h1>
+            </div>
+
+            <!-- Event Details -->
+            <div class="my-6 space-y-4 text-center border-t border-b border-[#e8d8bd] py-6">
+                <div>
+                    <h3 class="font-cinzel text-sm uppercase tracking-widest text-[#8b0000] font-bold">Date & Venue</h3>
+                    <p class="text-base font-semibold mt-1">Wednesday, 18 November 2026</p>
+                    <p class="text-sm text-gray-600">Imperial Marquee, National Stadium Road, Karachi</p>
+                </div>
+
+                <!-- Programme Details with Desi House / Dhol Icon -->
+                <div class="grid grid-cols-2 gap-4 pt-4 border-t border-dashed border-[#e8d8bd]">
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full bg-[#f4ebd0] flex items-center justify-center text-[#8b0000] mb-1">
+                            <i class="fa-solid fa-house-chimney-window"></i>
+                        </div>
+                        <span class="text-xs font-cinzel uppercase text-gray-500">Gathering</span>
+                        <span class="text-sm font-bold text-gray-800">9:00 PM</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full bg-[#f4ebd0] flex items-center justify-center text-[#8b0000] mb-1">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <span class="text-xs font-cinzel uppercase text-gray-500">Dinner</span>
+                        <span class="text-sm font-bold text-gray-800">10:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RSVP / Confirm Attendance -->
+            <div class="text-center pb-4">
+                <button onclick="alert('Thank you! Attendance confirmation noted.')" class="bg-[#8b0000] text-white font-cinzel text-xs tracking-widest uppercase px-6 py-3 rounded-full shadow hover:bg-[#680000] transition">
+                    Confirm Attendance
+                </button>
+            </div>
+        </div>
+
+        <!-- GATEFOLD OPENING COVERS -->
+        <div id="gatefoldContainer" class="absolute inset-0 z-20 flex pointer-events-auto">
+            <!-- Left Cover Panel -->
+            <div class="gatefold-left w-1/2 h-full bg-[#fbf9f5] border-r border-[#d4af37] relative flex flex-col items-center justify-center p-4 bg-cover bg-center shadow-inner" style="background-color: var(--paper-dark-bg);">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <!-- Floral Corner Clustered Element -->
+                <div id="ele-flowers" class="absolute top-4 left-4 text-[#c5a059] text-2xl"><i class="fa-solid fa-spa"></i></div>
+            </div>
+
+            <!-- Right Cover Panel -->
+            <div class="gatefold-right w-1/2 h-full bg-[#fbf9f5] border-l border-[#d4af37] relative flex flex-col items-center justify-center p-4 bg-cover bg-center shadow-inner" style="background-color: var(--paper-dark-bg);">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div id="ele-filigrees" class="absolute bottom-4 right-4 text-[#c5a059] text-2xl"><i class="fa-solid fa-spa fa-rotate-180"></i></div>
+            </div>
+
+            <!-- Center Wax Seal & Bow Gatefold Opener -->
+            <div onclick="openCard()" class="absolute inset-0 m-auto w-32 h-32 z-30 flex flex-col items-center justify-center cursor-pointer group">
+                <!-- Ribbon Bow Header -->
+                <div class="text-[#d4af37] text-3xl mb-[-10px] drop-shadow group-hover:scale-110 transition">
+                    <i class="fa-solid fa-ribbon"></i>
+                </div>
+                <!-- Wax Seal Stamp -->
+                <div id="ele-seal" class="w-16 h-16 rounded-full bg-[#8b0000] border-4 border-[#d4af37] shadow-2xl flex items-center justify-center text-white font-cinzel text-xl font-bold group-hover:scale-105 transition">
+                    ER
+                </div>
+                <span class="mt-2 text-[10px] font-cinzel tracking-widest text-[#8b0000] bg-[#fbf9f5]/90 px-3 py-1 rounded-full border border-[#d4af37] shadow">
+                    Tap to Open
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT LOGIC -->
+    <script>
+        function openCard() {
+            document.getElementById('mainCard').classList.add('opened');
+            document.getElementById('gatefoldContainer').style.pointerEvents = 'none';
+        }
+        function toggleCustomizer() {
+            alert("Customizer & Elements panel active.");
+        }
+        function toggleCraftStudio() {
+            alert("DIY Craft Studio active: tap or drag elements.");
+        }
+    </script>
+</body>
+</html>
